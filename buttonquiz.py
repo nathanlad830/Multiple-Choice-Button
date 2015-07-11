@@ -1,26 +1,28 @@
+#Import Libraries
 import RPi.GPIO as GPIO
 import time
+#Setup GPIO Mode
 GPIO.setmode(GPIO.BCM)
 
-#set score
+#Set score
 score = 0
 
-#set question number
+#Set question number
 question = 1
 
-#setup A B and C buttons
+#Setup A B and C buttons
 GPIO.setup(23, GPIO.IN, pull_up_down = GPIO.PUD_DOWN)
 GPIO.setup(24, GPIO.IN, pull_up_down = GPIO.PUD_UP)
 GPIO.setup(25, GPIO.IN, pull_up_down = GPIO.PUD_DOWN)
 
-#main text that appears on screen for user
+#Main text that appears on screen for user
 print("You find a wallet, do you...")
 print("A. Find who it belongs to")
 print("B. Keep it and spend it on yourself")
 print("C. Give it to the police and let them handle it")
 print("A, B or C?")
 
-#while loop to run code if button is pressed
+#While loop to run code if button is pressed
 #Question 1
 while question == 1:
     if(GPIO.input(23) == 1):
